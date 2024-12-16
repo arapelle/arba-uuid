@@ -1,7 +1,9 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(arba-vrsn 0.4 CONFIG)
+find_dependency(arba-vrsn 0.4.1 CONFIG)
+find_dependency(arba-hash 0.1.0 CONFIG)
+find_dependency(arba-rand 0.1.0 CONFIG)
 
 include(${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@-targets.cmake)
 check_required_components(@PROJECT_NAME@-targets)

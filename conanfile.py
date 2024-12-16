@@ -57,6 +57,8 @@ class ArbaUuidRecipe(ConanFile):
     
     def requirements(self):
         self.requires("arba-vrsn/[^0.4]", transitive_headers=True, transitive_libs=True)
+        self.requires("arba-hash/[^0.1]", transitive_libs=True)
+        self.requires("arba-rand/[^0.1]", transitive_libs=True)
 
     def build_requirements(self):
         self.test_requires("gtest/[^1.14]")
