@@ -2,10 +2,10 @@
 
 #include <array>
 #include <cstdint>
+#include <format>
 #include <string>
 #include <string_view>
 #include <type_traits>
-#include <format>
 
 inline namespace arba
 {
@@ -69,8 +69,8 @@ private:
     std::array<uint8_t, 16> data_;
 };
 
-}
-}
+} // namespace uuid
+} // namespace arba
 
 template <>
 struct std::hash<::arba::uuid::uuid>

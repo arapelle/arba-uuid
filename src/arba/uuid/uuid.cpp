@@ -36,7 +36,7 @@ constexpr inline unsigned char hexpair2char(TChar const a, TChar const b)
 {
     return (hex2char(a) << 4) | hex2char(b);
 }
-}
+} // namespace detail
 
 uuid::uuid() : data_{ 0 }
 {
@@ -110,19 +110,18 @@ uuid uuid::make_random_uuid()
 
 std::ostream& operator<<(std::ostream& stream, const uuid& uuid)
 {
-    return stream << std::hex << std::setfill('0')
-                  << std::setw(2) << (int)uuid.data_[0] << std::setw(2) << (int)uuid.data_[1]
-                  << std::setw(2) << (int)uuid.data_[2] << std::setw(2) << (int)uuid.data_[3]
-                  << '-' << std::setw(2) << (int)uuid.data_[4] << std::setw(2) << (int)uuid.data_[5]
-                  << '-' << std::setw(2) << (int)uuid.data_[6] << std::setw(2) << (int)uuid.data_[7]
-                  << '-' << std::setw(2) << (int)uuid.data_[8] << std::setw(2) << (int)uuid.data_[9]
-                  << '-' << std::setw(2) << (int)uuid.data_[10] << std::setw(2) << (int)uuid.data_[11]
-                  << std::setw(2) << (int)uuid.data_[12] << std::setw(2) << (int)uuid.data_[13]
-                  << std::setw(2) << (int)uuid.data_[14] << std::setw(2) << (int)uuid.data_[15];
+    return stream << std::hex << std::setfill('0') << std::setw(2) << (int)uuid.data_[0] << std::setw(2)
+                  << (int)uuid.data_[1] << std::setw(2) << (int)uuid.data_[2] << std::setw(2) << (int)uuid.data_[3]
+                  << '-' << std::setw(2) << (int)uuid.data_[4] << std::setw(2) << (int)uuid.data_[5] << '-'
+                  << std::setw(2) << (int)uuid.data_[6] << std::setw(2) << (int)uuid.data_[7] << '-' << std::setw(2)
+                  << (int)uuid.data_[8] << std::setw(2) << (int)uuid.data_[9] << '-' << std::setw(2)
+                  << (int)uuid.data_[10] << std::setw(2) << (int)uuid.data_[11] << std::setw(2) << (int)uuid.data_[12]
+                  << std::setw(2) << (int)uuid.data_[13] << std::setw(2) << (int)uuid.data_[14] << std::setw(2)
+                  << (int)uuid.data_[15];
 }
 
-}
-}
+} // namespace uuid
+} // namespace arba
 
 namespace std
 {
@@ -133,4 +132,4 @@ std::size_t hash<::arba::uuid::uuid>::operator()(const ::arba::uuid::uuid& uuid)
     return static_cast<std::size_t>(hash);
 }
 
-}
+} // namespace std
