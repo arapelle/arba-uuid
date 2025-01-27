@@ -67,8 +67,8 @@ add_library("${PROJECT_NAMESPACE}::${PROJECT_BASE_NAME}${LIBRARY_TYPE_POSTFIX}" 
 
 ## Link C++ targets:
 find_package(arba-vrsn 0.4.1 REQUIRED CONFIG)
-find_package(arba-hash 0.1.0 REQUIRED CONFIG)
-find_package(arba-rand 0.1.0 REQUIRED CONFIG)
+find_package(arba-hash 0.2.0 REQUIRED CONFIG)
+find_package(arba-rand 0.2.0 REQUIRED CONFIG)
 target_link_libraries(${PROJECT_TARGET_NAME}
     PUBLIC
         arba::vrsn
