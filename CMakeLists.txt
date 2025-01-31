@@ -23,7 +23,7 @@ set_project_semantic_version("0.2.0" PRE_RELEASE "dev" BUILD_METADATA "${configu
 
 project(${PROJECT_NAME}
         VERSION ${PROJECT_VERSION}
-        DESCRIPTION "A C++ library."
+        DESCRIPTION "A C++ library providing UUID features."
         HOMEPAGE_URL "https://github.com/arapelle/arba-uuid"
         LANGUAGES CXX)
 message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_SEMANTIC_VERSION} ${CMAKE_BUILD_TYPE}")

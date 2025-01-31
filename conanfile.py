@@ -14,7 +14,7 @@ class ArbaUuidRecipe(ConanFile):
     package_type = "library"
 
     # Optional metadata
-    description = "A C++ library providing uuid features."
+    description = "A C++ library providing UUID features."
     url = "https://github.com/arapelle/arba-uuid"
     homepage = "https://github.com/arapelle/arba-uuid"
     topics = ("uuid")
