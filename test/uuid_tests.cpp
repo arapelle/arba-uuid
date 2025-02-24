@@ -1,6 +1,7 @@
+#include <arba/uuid/uuid.hpp>
+
 #include <arba/rand/rand.hpp>
 #include <arba/rand/urng.hpp>
-#include <arba/uuid/uuid.hpp>
 #include <gtest/gtest.h>
 
 TEST(uuid_tests, test_uuid_constructor)

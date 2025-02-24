@@ -19,11 +19,11 @@ set_build_type_ifndef()
 
 set_project_name(NAMESPACE "arba" BASE_NAME "uuid")
 string(TIMESTAMP configure_datetime "%Y%m%d-%H%M%S")
-set_project_semantic_version("0.1.0" BUILD_METADATA "${configure_datetime}")
+set_project_semantic_version("0.2.0" BUILD_METADATA "${configure_datetime}")
 
 project(${PROJECT_NAME}
         VERSION ${PROJECT_VERSION}
-        DESCRIPTION "A C++ library."
+        DESCRIPTION "A C++ library providing UUID features."
         HOMEPAGE_URL "https://github.com/arapelle/arba-uuid"
         LANGUAGES CXX)
 message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_SEMANTIC_VERSION} ${CMAKE_BUILD_TYPE}")
@@ -66,12 +66,10 @@ add_cpp_library(${PROJECT_TARGET_NAME} ${${PROJECT_UPPER_VAR_NAME}_LIBRARY_TYPE}
 add_library("${PROJECT_NAMESPACE}::${PROJECT_BASE_NAME}${LIBRARY_TYPE_POSTFIX}" ALIAS ${PROJECT_TARGET_NAME})
 
 ## Link C++ targets:
-find_package(arba-vrsn 0.4.1 REQUIRED CONFIG)
-find_package(arba-hash 0.1.0 REQUIRED CONFIG)
-find_package(arba-rand 0.1.0 REQUIRED CONFIG)
+find_package(arba-hash 0.2.0 REQUIRED CONFIG)
+find_package(arba-rand 0.2.0 REQUIRED CONFIG)
 target_link_libraries(${PROJECT_TARGET_NAME}
     PUBLIC
-        arba::vrsn
         arba::hash
         arba::rand
 )

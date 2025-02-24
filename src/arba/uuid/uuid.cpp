@@ -1,7 +1,9 @@
-#include <algorithm>
+#include <arba/uuid/uuid.hpp>
+
 #include <arba/hash/murmur_hash.hpp>
 #include <arba/rand/rand.hpp>
-#include <arba/uuid/uuid.hpp>
+
+#include <algorithm>
 #include <iomanip>
 #include <sstream>
 
