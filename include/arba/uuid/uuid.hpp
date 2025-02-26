@@ -1,5 +1,8 @@
 #pragma once
 
+#include <arba/hash/murmur_hash.hpp>
+#include <arba/rand/rand.hpp>
+
 #include <array>
 #include <cstdint>
 #include <format>
@@ -60,7 +63,7 @@ public:
         return make_random_uuid(tmp_rng);
     }
 
-    static uuid make_random_uuid();
+    static uuid make_random_uuid() { return make_random_uuid(static_cast<uint64_t (&)()>(rand::rand_u64)); }
 
     auto operator<=>(const uuid&) const = default;
     friend std::ostream& operator<<(std::ostream& stream, const uuid& uuid);
@@ -75,7 +78,11 @@ private:
 template <>
 struct std::hash<::arba::uuid::uuid>
 {
-    std::size_t operator()(const ::arba::uuid::uuid& uuid) const;
+    std::size_t operator()(const ::arba::uuid::uuid& uuid) const
+    {
+        uint64_t hash = ::arba::hash::murmur_hash_64(&uuid.data().front(), uuid.data().size());
+        return static_cast<std::size_t>(hash);
+    }
 };
 
 template <class CharT>

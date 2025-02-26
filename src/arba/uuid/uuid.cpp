@@ -1,8 +1,5 @@
 #include <arba/uuid/uuid.hpp>
 
-#include <arba/hash/murmur_hash.hpp>
-#include <arba/rand/rand.hpp>
-
 #include <algorithm>
 #include <iomanip>
 #include <sstream>
@@ -105,11 +102,6 @@ std::string uuid::to_string() const
     return stream.str();
 }
 
-uuid uuid::make_random_uuid()
-{
-    return make_random_uuid(static_cast<uint64_t (&)()>(rand::rand_u64));
-}
-
 std::ostream& operator<<(std::ostream& stream, const uuid& uuid)
 {
     return stream << std::hex << std::setfill('0') << std::setw(2) << (int)uuid.data_[0] << std::setw(2)
@@ -124,14 +116,3 @@ std::ostream& operator<<(std::ostream& stream, const uuid& uuid)
 
 } // namespace uuid
 } // namespace arba
-
-namespace std
-{
-
-std::size_t hash<::arba::uuid::uuid>::operator()(const ::arba::uuid::uuid& uuid) const
-{
-    uint64_t hash = ::arba::hash::murmur_hash_64(&uuid.data().front(), uuid.data().size());
-    return static_cast<std::size_t>(hash);
-}
-
-} // namespace std
