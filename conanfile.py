@@ -14,7 +14,7 @@ class ArbaUuidRecipe(ConanFile):
     package_type = "library"
 
     # Optional metadata
-    description = "A C++ library providing uuid features."
+    description = "A C++ library providing UUID features."
     url = "https://github.com/arapelle/arba-uuid"
     homepage = "https://github.com/arapelle/arba-uuid"
     topics = ("uuid")
@@ -56,9 +56,8 @@ class ArbaUuidRecipe(ConanFile):
         check_min_cppstd(self, 20)
     
     def requirements(self):
-        self.requires("arba-vrsn/[^0.4]", transitive_headers=True, transitive_libs=True)
-        self.requires("arba-hash/[^0.1]", transitive_libs=True)
-        self.requires("arba-rand/[^0.1]", transitive_libs=True)
+        self.requires("arba-hash/[^0.2]", transitive_headers=True, transitive_libs=True)
+        self.requires("arba-rand/[^0.2]", transitive_headers=True, transitive_libs=True)
 
     def build_requirements(self):
         self.test_requires("gtest/[^1.14]")
