@@ -92,8 +92,4 @@ struct std::formatter<::arba::uuid::uuid, CharT>
     {
         return std::format_to(ctx.out(), "{}", id.to_string());
     }
-
-private:
-    bool pr_{ true };
-    bool bm_{ true };
 };
