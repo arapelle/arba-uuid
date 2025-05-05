@@ -104,14 +104,16 @@ std::string uuid::to_string() const
 
 std::ostream& operator<<(std::ostream& stream, const uuid& uuid)
 {
-    return stream << std::hex << std::setfill('0') << std::setw(2) << (int)uuid.data_[0] << std::setw(2)
-                  << (int)uuid.data_[1] << std::setw(2) << (int)uuid.data_[2] << std::setw(2) << (int)uuid.data_[3]
-                  << '-' << std::setw(2) << (int)uuid.data_[4] << std::setw(2) << (int)uuid.data_[5] << '-'
-                  << std::setw(2) << (int)uuid.data_[6] << std::setw(2) << (int)uuid.data_[7] << '-' << std::setw(2)
-                  << (int)uuid.data_[8] << std::setw(2) << (int)uuid.data_[9] << '-' << std::setw(2)
-                  << (int)uuid.data_[10] << std::setw(2) << (int)uuid.data_[11] << std::setw(2) << (int)uuid.data_[12]
-                  << std::setw(2) << (int)uuid.data_[13] << std::setw(2) << (int)uuid.data_[14] << std::setw(2)
-                  << (int)uuid.data_[15];
+    return stream << std::hex << std::setfill('0') << std::setw(2) << static_cast<int>(uuid.data_[0]) << std::setw(2)
+                  << static_cast<int>(uuid.data_[1]) << std::setw(2) << static_cast<int>(uuid.data_[2]) << std::setw(2)
+                  << static_cast<int>(uuid.data_[3]) << '-' << std::setw(2) << static_cast<int>(uuid.data_[4])
+                  << std::setw(2) << static_cast<int>(uuid.data_[5]) << '-' << std::setw(2)
+                  << static_cast<int>(uuid.data_[6]) << std::setw(2) << static_cast<int>(uuid.data_[7]) << '-'
+                  << std::setw(2) << static_cast<int>(uuid.data_[8]) << std::setw(2) << static_cast<int>(uuid.data_[9])
+                  << '-' << std::setw(2) << static_cast<int>(uuid.data_[10]) << std::setw(2)
+                  << static_cast<int>(uuid.data_[11]) << std::setw(2) << static_cast<int>(uuid.data_[12])
+                  << std::setw(2) << static_cast<int>(uuid.data_[13]) << std::setw(2)
+                  << static_cast<int>(uuid.data_[14]) << std::setw(2) << static_cast<int>(uuid.data_[15]);
 }
 
 } // namespace uuid
