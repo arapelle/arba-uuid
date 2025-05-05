@@ -80,8 +80,8 @@ struct std::hash<::arba::uuid::uuid>
 {
     std::size_t operator()(const ::arba::uuid::uuid& uuid) const
     {
-        uint64_t hash = ::arba::hash::murmur_hash_64(&uuid.data().front(), uuid.data().size());
-        return static_cast<std::size_t>(hash);
+        uint64_t hash_value = ::arba::hash::murmur_hash_64(&uuid.data().front(), uuid.data().size());
+        return static_cast<std::size_t>(hash_value);
     }
 };
 

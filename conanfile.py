@@ -56,8 +56,8 @@ class ArbaUuidRecipe(ConanFile):
         check_min_cppstd(self, 20)
     
     def requirements(self):
-        self.requires("arba-hash/[^0.2]", transitive_headers=True, transitive_libs=True)
-        self.requires("arba-rand/[^0.2]", transitive_headers=True, transitive_libs=True)
+        self.requires("arba-hash/[^0.3]", transitive_headers=True, transitive_libs=True)
+        self.requires("arba-rand/[^0.3]", transitive_headers=True, transitive_libs=True)
 
     def build_requirements(self):
         self.test_requires("gtest/[^1.14]")
